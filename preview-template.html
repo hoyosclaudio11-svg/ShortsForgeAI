@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nube — Short generado por IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --night: #070b16;
+    --ink: #0e1426;
+    --ink-2: #141c33;
+    --line: rgba(147, 176, 214, 0.16);
+    --cream: #f3ecdd;
+    --amber: #f2a03d;
+    --amber-soft: rgba(242, 160, 61, 0.16);
+    --sky: #8db8ec;
+    --muted: #96a3bf;
+    --muted-2: #6b7896;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { color-scheme: dark; }
+  body {
+    background: var(--night);
+    color: var(--cream);
+    font-family: "Karla", system-ui, sans-serif;
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(1100px 520px at 82% -8%, rgba(242, 160, 61, 0.09), transparent 60%),
+      radial-gradient(900px 700px at -12% 108%, rgba(141, 184, 236, 0.07), transparent 62%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wrap { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 56px 24px 72px; }
+
+  /* ── Header ── */
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--amber); display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--amber); opacity: 0.7; }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 900; font-size: clamp(34px, 5.4vw, 54px);
+    line-height: 1.04; letter-spacing: -0.015em; margin: 14px 0 10px;
+    text-wrap: balance;
+  }
+  .hook {
+    font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 500;
+    font-size: clamp(17px, 2.2vw, 21px); color: var(--amber); text-wrap: balance;
+  }
+  .specs { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .spec {
+    font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--muted);
+    border: 1px solid var(--line); background: var(--ink);
+    border-radius: 999px; padding: 5px 12px; white-space: nowrap;
+  }
+  .spec b { color: var(--cream); font-weight: 600; }
+
+  /* ── Hero: teléfono + ficha ── */
+  .hero {
+    margin-top: 40px; display: grid; gap: 40px;
+    grid-template-columns: minmax(280px, 340px) 1fr; align-items: start;
+  }
+  @media (max-width: 760px) { .hero { grid-template-columns: 1fr; justify-items: center; } }
+
+  .phone {
+    width: 320px; aspect-ratio: 9 / 16; border-radius: 34px; overflow: hidden;
+    border: 1px solid rgba(147, 176, 214, 0.28);
+    background: var(--ink); position: relative; cursor: pointer;
+    box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.85), 0 0 0 8px #0b101f, 0 0 0 9px var(--line);
+    user-select: none;
+  }
+  .phone:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+  .phone img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .phone .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,11,22,0.14) 0%, rgba(7,11,22,0) 28%, rgba(7,11,22,0) 55%, rgba(7,11,22,0.82) 100%); }
+  .phone .badge-chip {
+    position: absolute; top: 16px; left: 16px;
+    font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+    color: var(--cream); background: rgba(7, 11, 22, 0.55); backdrop-filter: blur(6px);
+    border: 1px solid rgba(147, 176, 214, 0.25); border-radius: 999px; padding: 5px 11px;
+  }
+  .phone .subtitle {
+    position: absolute; left: 14px; right: 14px; bottom: 44px;
+    font-size: 17px; font-weight: 700; line-height: 1.3; text-align: center;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    min-height: 66px;
+  }
+  .phone .subtitle span { opacity: 0.32; transition: opacity 0.22s ease; }
+  .phone .subtitle span.on { opacity: 1; color: var(--amber); }
+  .phone .timeline { position: absolute; left: 14px; right: 14px; bottom: 20px; display: flex; gap: 4px; }
+  .phone .seg { height: 3px; flex: 1; border-radius: 99px; background: rgba(243, 236, 221, 0.22); overflow: hidden; }
+  .phone .seg .fill { height: 100%; width: 0%; background: var(--amber); }
+  .phone .seg.active .fill { width: 100%; transition: width 0.3s linear; }
+  .phone .seg.playing .fill { transition: none; }
+  .phone .timecode {
+    position: absolute; right: 16px; bottom: 24px;
+    font-family: "JetBrains Mono", monospace; font-size: 9px; color: rgba(243, 236, 221, 0.75);
+  }
+  .play-btn {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    background: rgba(7, 11, 22, 0.28); transition: background 0.25s ease;
+  }
+  .play-btn .circle {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: rgba(242, 160, 61, 0.92); display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 12px 40px -8px rgba(242, 160, 61, 0.55);
+    transition: transform 0.2s ease;
+  }
+  .play-btn .circle svg { width: 28px; height: 28px; fill: #140d02; margin-left: 3px; }
+  .phone:hover .play-btn .circle { transform: scale(1.06); }
+  .phone.playing .play-btn { opacity: 0; pointer-events: none; }
+
+  .side { display: flex; flex-direction: column; gap: 22px; }
+  .panel {
+    border: 1px solid var(--line); background: var(--ink);
+    border-radius: 18px; padding: 20px 22px;
+  }
+  .panel .k {
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted-2); margin-bottom: 10px;
+  }
+  .desc { font-size: 14.5px; color: var(--muted); }
+  .cta {
+    font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 18px; color: var(--cream);
+  }
+  .cta b { color: var(--amber); font-weight: 700; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--sky);
+    border: 1px solid rgba(141, 184, 236, 0.28); background: rgba(141, 184, 236, 0.07);
+    border-radius: 999px; padding: 4px 10px;
+  }
+
+  /* ── Storyboard ── */
+  .storyboard { margin-top: 56px; }
+  .storyboard h2 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 24px;
+    margin-bottom: 6px; text-wrap: balance;
+  }
+  .storyboard .sub { font-size: 13.5px; color: var(--muted); margin-bottom: 24px; }
+  .row {
+    display: grid; grid-template-columns: 74px 54px 1fr; gap: 16px;
+    padding: 18px 0; border-top: 1px solid var(--line); align-items: start;
+  }
+  .row:last-child { border-bottom: 1px solid var(--line); }
+  .row .tc { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--muted-2); padding-top: 4px; }
+  .row .tc b { display: block; color: var(--amber); font-size: 12.5px; font-weight: 600; }
+  .row .thumb {
+    width: 54px; aspect-ratio: 9/16; border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--line); background: var(--ink-2);
+  }
+  .row .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .row .body { min-width: 0; }
+  .row .badge {
+    display: inline-block; font-family: "JetBrains Mono", monospace; font-size: 9.5px;
+    font-weight: 600; letter-spacing: 0.16em; color: #140d02;
+    background: var(--amber); border-radius: 6px; padding: 2.5px 8px; margin-bottom: 7px;
+  }
+  .row .subt {
+    font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 17px;
+    margin-bottom: 5px; text-wrap: balance;
+  }
+  .row .narra { font-size: 13.5px; color: var(--muted); max-width: 62ch; }
+  .row .prompt {
+    margin-top: 8px; font-family: "JetBrains Mono", monospace; font-size: 10px;
+    color: var(--muted-2); line-height: 1.5; border-left: 2px solid var(--line);
+    padding-left: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .row .chips { margin-top: 9px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    font-family: "JetBrains Mono", monospace; font-size: 9.5px; color: var(--sky);
+    border: 1px solid rgba(141, 184, 236, 0.22); border-radius: 6px; padding: 2px 7px;
+  }
+
+  .foot {
+    margin-top: 56px; text-align: center;
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--muted-2); line-height: 1.9;
+  }
+  .foot .dot { color: var(--amber); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">ShortsForge AI · generado en vivo · 1 sep 2026</div>
+    <h1 id="titulo"></h1>
+    <p class="hook" id="hook"></p>
+    <div class="specs" id="specs"></div>
+  </header>
+
+  <section class="hero">
+    <div class="phone" id="phone" role="button" tabindex="0" aria-label="Reproductor del short, 60 segundos">
+      <img id="ph-img" alt="Escena del cuento" />
+      <div class="scrim"></div>
+      <div class="badge-chip" id="ph-badge"></div>
+      <div class="subtitle" id="ph-sub"></div>
+      <div class="timeline" id="ph-tl"></div>
+      <div class="timecode" id="ph-tc"></div>
+      <div class="play-btn" id="ph-play">
+        <div class="circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></div>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="panel">
+        <div class="k">Cómo se generó</div>
+        <p class="desc" id="fuente"></p>
+      </div>
+      <div class="panel">
+        <div class="k">Descripción del short</div>
+        <p class="desc" id="desc"></p>
+      </div>
+      <div class="panel">
+        <div class="k">Cierre</div>
+        <p class="cta" id="cta"></p>
+      </div>
+      <div class="panel">
+        <div class="k">Hashtags</div>
+        <div class="tags" id="tags"></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="storyboard">
+    <h2>El guion, escena por escena</h2>
+    <p class="sub">Seis escenas de 10 segundos — exactamente 60. Toca un segmento del teléfono o una fila para saltar.</p>
+    <div id="rows"></div>
+  </section>
+
+  <footer class="foot">
+    <span class="dot">●</span> En tu máquina: <b>localhost:5174 → Muestras → #4 Nube</b> (con voz, música y exportación MP4)<br />
+    Imágenes: FreeLLMAPI FLUX · Guion: OpenRouter deepseek-chat · TTS y música: navegador
+  </footer>
+</div>
+
+<script id="data" type="application/json">{{DATA}}</script>
+<script>
+(function () {
+  var DATA = JSON.parse(document.getElementById('data').textContent);
+  var BADGES = ['INICIO', 'PERSONAJES', 'CONFLICTO', 'EL GIRO', 'CLÍMAX', 'MORALEJA'];
+  var CAMERAS = ['zoom_in', 'pan_left', 'zoom_out', 'tilt_up', 'zoom_in', 'dolly_shake'];
+  var TRANS = ['crossfade', 'wipe_left', 'crossfade', 'zoom_blur', 'push_up', 'flash_white'];
+
+  function fmt(s) { return '00:' + String(s).padStart(2, '0'); }
+
+  // Header
+  document.getElementById('titulo').textContent = DATA.titulo;
+  document.getElementById('hook').textContent = DATA.hook;
+  var specs = document.getElementById('specs');
+  [['1080×1920', '9:16'], ['60.0 s exactos', '6 × 10s'], ['30 fps', 'TTS + música en vivo'], ['FreeLLMAPI', 'FLUX nvidia']].forEach(function (s) {
+    var el = document.createElement('span'); el.className = 'spec';
+    el.innerHTML = '<b>' + s[0] + '</b> · ' + s[1]; specs.appendChild(el);
+  });
+  document.getElementById('fuente').textContent = 'Guion escrito por el LLM (OpenRouter deepseek-chat) en un solo prompt con estructura narrativa: gancho → conflicto → giro → clímax → moraleja. Las 6 imágenes se generaron con FreeLLMAPI (modelo auto, nvidia FLUX) y se compusieron con movimiento de cámara, subtítulos karaoke y banda sonora sintetizada en vivo.';
+  document.getElementById('desc').textContent = DATA.descripcion;
+  var cta = document.getElementById('cta');
+  var ctaTxt = DATA.cta;
+  cta.innerHTML = '“' + ctaTxt + '”';
+  var tags = document.getElementById('tags');
+  (DATA.hashtags || []).forEach(function (h) {
+    var el = document.createElement('span'); el.className = 'tag'; el.textContent = h; tags.appendChild(el);
+  });
+
+  // Phone
+  var phone = document.getElementById('phone');
+  var phImg = document.getElementById('ph-img');
+  var phBadge = document.getElementById('ph-badge');
+  var phSub = document.getElementById('ph-sub');
+  var phTl = document.getElementById('ph-tl');
+  var phTc = document.getElementById('ph-tc');
+  var phPlay = document.getElementById('ph-play');
+
+  DATA.escenas.forEach(function (_, i) {
+    var seg = document.createElement('div'); seg.className = 'seg'; seg.dataset.i = i;
+    var fill = document.createElement('div'); fill.className = 'fill'; seg.appendChild(fill);
+    seg.addEventListener('click', function (ev) { ev.stopPropagation(); jumpTo(i); });
+    phTl.appendChild(seg);
+  });
+
+  var state = { idx: 0, t: 0, playing: false, timer: null };
+
+  function render(animate) {
+    var sc = DATA.escenas[state.idx];
+    phImg.src = sc.img;
+    phBadge.textContent = BADGES[state.idx];
+    phTc.textContent = fmt(state.idx * 10) + ' / 0:60';
+    var words = sc.subtitulo.split(' ');
+    phSub.innerHTML = '';
+    var dur = 10;
+    words.forEach(function (w, wi) {
+      var sp = document.createElement('span');
+      sp.textContent = w + ' ';
+      var s = 0.3 + (wi / words.length) * (dur - 1);
+      var e = 0.3 + ((wi + 1) / words.length) * (dur - 1);
+      sp.dataset.s = s; sp.dataset.e = e;
+      phSub.appendChild(sp);
+    });
+    var segs = phTl.children;
+    for (var i = 0; i < segs.length; i++) {
+      segs[i].classList.toggle('active', i === state.idx);
+      segs[i].classList.toggle('playing', state.playing);
+      segs[i].firstChild.style.width = (i < state.idx ? 100 : i === state.idx && state.playing ? (state.t / dur) * 100 : 0) + '%';
+    }
+    var spans = phSub.children;
+    for (var j = 0; j < spans.length; j++) {
+      spans[j].classList.toggle('on', state.playing && state.t >= +spans[j].dataset.s && state.t <= +spans[j].dataset.e);
+    }
+    phone.classList.toggle('playing', state.playing);
+  }
+
+  function tick() {
+    state.t += 0.1;
+    if (state.t >= 10) {
+      if (state.idx >= DATA.escenas.length - 1) { setPlaying(false); state.t = 10; render(true); return; }
+      state.idx++; state.t = 0;
+    }
+    render(true);
+  }
+
+  function setPlaying(on) {
+    state.playing = on;
+    clearInterval(state.timer); state.timer = null;
+    if (on) state.timer = setInterval(tick, 100);
+    render(true);
+  }
+
+  function jumpTo(i) { state.idx = i; state.t = 0; render(true); }
+  function toggle() { setPlaying(!state.playing); }
+
+  phone.addEventListener('click', toggle);
+  phone.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggle(); } });
+
+  // Storyboard rows
+  var rows = document.getElementById('rows');
+  DATA.escenas.forEach(function (sc, i) {
+    var row = document.createElement('div'); row.className = 'row'; row.style.cursor = 'pointer';
+    var tc = document.createElement('div'); tc.className = 'tc';
+    tc.innerHTML = '<b>' + fmt(i * 10) + '</b>' + fmt((i + 1) * 10);
+    var th = document.createElement('div'); th.className = 'thumb';
+    var im = document.createElement('img'); im.src = sc.img; im.alt = 'Escena ' + (i + 1); th.appendChild(im);
+    var bd = document.createElement('div'); bd.className = 'body';
+    bd.innerHTML = '<div class="badge">' + BADGES[i] + '</div>' +
+      '<div class="subt">' + sc.subtitulo + '</div>' +
+      '<div class="narra">' + sc.narracion + '</div>' +
+      '<div class="prompt">' + sc.prompt_imagen + '</div>' +
+      '<div class="chips"><span class="chip">' + CAMERAS[i] + '</span><span class="chip">' + TRANS[i] + '</span><span class="chip">10 s</span></div>';
+    row.appendChild(tc); row.appendChild(th); row.appendChild(bd);
+    row.addEventListener('click', function () { jumpTo(i); if (!state.playing) setPlaying(true); });
+    rows.appendChild(row);
+  });
+
+  render(false);
+})();
+</script>
+</body>
+</html>

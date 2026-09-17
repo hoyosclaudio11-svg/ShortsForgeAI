@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #030712;
+    color: #f8fafc;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-heading {
+  font-family: 'Montserrat', 'Syne', sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #273549;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e11d48;
+}
+
+/* Pulsing audio equalizer bars */
+@keyframes eqBar {
+  0%, 100% { height: 20%; }
+  50% { height: 100%; }
+}
+
+.animate-eq-1 { animation: eqBar 0.8s ease-in-out infinite; }
+.animate-eq-2 { animation: eqBar 0.6s ease-in-out infinite 0.2s; }
+.animate-eq-3 { animation: eqBar 1.1s ease-in-out infinite 0.4s; }
+.animate-eq-4 { animation: eqBar 0.7s ease-in-out infinite 0.1s; }
+
+/* Glowing neon badges */
+.neon-glow-red {
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.35), 0 0 60px rgba(244, 63, 94, 0.15);
+}
+.neon-glow-cyan {
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.35), 0 0 60px rgba(6, 182, 212, 0.15);
+}
+.neon-glow-amber {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.35), 0 0 60px rgba(245, 158, 11, 0.15);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
